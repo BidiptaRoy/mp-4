@@ -10,15 +10,51 @@ const WeatherCardWrapper = styled.div`
     margin: 1rem;
     width: 200px;
     border-radius: 10px;
+    background-color: #1a1a1a;
+`;
+const Timeofday = styled.h2`
+    color: cyan;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
 `;
 
-export default function WeatherCard(props:Weather){
+const Conditions = styled.p`
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+`;
+
+const Details = styled.p`
+    color: darkgray;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+`;
+
+const TempRow = styled.p`
+    color: salmon;
+    margin-bottom: 0.25rem;
+`;
+
+const FeelsLike = styled.p`
+    color: orange;
+    margin-bottom: 0.25rem;
+`;
+
+const Precip = styled.p`
+    color: cornflowerblue;
+    margin-bottom: 0.25rem;
+`;
+
+
+export default function WeatherCard(props: Weather){
     return(
         <WeatherCardWrapper className="weather-card">
-            <h2>{props.datetime}</h2>
-            <p>{props.conditions}</p>
-            <p>{props.description}</p>
-            <p>{props.tempmin}°-{props.tempmax}°</p>
+            <Timeofday>{props.datetime}</Timeofday>
+            <Conditions>{props.conditions}</Conditions>
+            <Details>{props.description}</Details>
+            <TempRow>🌡 {props.tempmin}° - {props.tempmax}°</TempRow>
+            <FeelsLike>🤔 Feels like {props.feelslike}°</FeelsLike>
+            <Precip>🌧 {props.precipprob}% chance · {props.precip} in</Precip>
         </WeatherCardWrapper>
     )
 }
